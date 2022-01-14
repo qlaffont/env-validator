@@ -7,5 +7,5 @@ validateEnv(
   },
   {
     requiredProperties: ['NODE_ENV'],
-  }
+  },
 );
