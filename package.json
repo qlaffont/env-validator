@@ -34,11 +34,11 @@
   "size-limit": [
     {
       "path": "dist/env-vars-validator.cjs.production.min.js",
-      "limit": "10 KB"
+      "limit": "50 KB"
     },
     {
       "path": "dist/env-vars-validator.esm.js",
-      "limit": "10 KB"
+      "limit": "50 KB"
     }
   ],
   "devDependencies": {
