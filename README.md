@@ -24,13 +24,13 @@ validateEnv(
 
 Return: `void`
 
-Able to validate env var from [Ajv Properties Fields]([Ajv JSON schema validator](https://ajv.js.org/json-schema.html).
+Able to validate env var from [Ajv Properties Fields](https://ajv.js.org/json-schema.html).
 
 **Options**
 
 | Field Name | Type | Default | Description |
 | --- | --- | --- | --- |
-| requiredProperties | string[] | []  | Indicate if field is required (*More Information :* [JSON Schema Required](https://ajv.js.org/json-schema.html#required) ) |
+| requiredProperties | string[] | []  | Indicate if field is required (*More Information :* [JSON Schema Required](https://ajv.js.org/json-schema.html#required)) |
 
 ### currentEnv
 
