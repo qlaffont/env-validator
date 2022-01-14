@@ -15,7 +15,7 @@ describe('Validate environment variables', () => {
         const { validateEnv } = require('../src');
         validateEnv();
       } catch (e) {
-        expect(e.message).toBe(
+        expect((e as Error).message).toBe(
           'Impossible to load environment variables validation schema.',
         );
       }
@@ -32,7 +32,7 @@ describe('Validate environment variables', () => {
           { requiredProperties: ['NODE_ENV'] },
         );
       } catch (e) {
-        expect(e.message).toBe(
+        expect((e as Error).message).toBe(
           "process.env must have required property 'NODE_ENV'",
         );
       }
@@ -48,7 +48,7 @@ describe('Validate environment variables', () => {
           NODE_ENV: { type: 'string', enum: ['ceciestunstringnotvalid'] },
         });
       } catch (e) {
-        expect(e.message).toBe(
+        expect((e as Error).message).toBe(
           'process.env/NODE_ENV must be equal to one of the allowed values',
         );
       }
