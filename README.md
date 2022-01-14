@@ -1,11 +1,11 @@
-# env-validator
+# env-vars-validator
 
 A library who will validate your environment variables from AJV schema.
 
 ## Usage
 
 ```js
-const { validateEnv } = require("env-validator")
+const { validateEnv } = require("env-vars-validator")
 
 validateEnv(
   {

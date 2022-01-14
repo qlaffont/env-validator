@@ -1,4 +1,4 @@
-const { validateEnv } = require('env-validator');
+const { validateEnv } = require('env-vars-validator');
 
 validateEnv(
   {

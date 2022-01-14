@@ -18,7 +18,7 @@
     "prepare": "tsdx build",
     "size": "size-limit",
     "analyze": "size-limit --why",
-    "publish": "np"
+    "np": "np"
   },
   "husky": {
     "hooks": {
@@ -28,16 +28,16 @@
   "publishConfig": {
     "access": "public"
   },
-  "name": "env-validator",
+  "name": "env-vars-validator",
   "author": "Quentin Laffont",
-  "module": "dist/env-validator.esm.js",
+  "module": "dist/env-vars-validator.esm.js",
   "size-limit": [
     {
-      "path": "dist/env-validator.cjs.production.min.js",
+      "path": "dist/env-vars-validator.cjs.production.min.js",
       "limit": "10 KB"
     },
     {
-      "path": "dist/env-validator.esm.js",
+      "path": "dist/env-vars-validator.esm.js",
       "limit": "10 KB"
     }
   ],
@@ -48,9 +48,10 @@
     "eslint": "8.6.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.25.4",
-    "eslint-plugin-simple-import-sort": "^7.0.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
     "husky": "^7.0.4",
+    "np": "^7.6.0",
     "prettier": "^2.5.1",
     "size-limit": "^7.0.5",
     "tsdx": "^0.14.1",
