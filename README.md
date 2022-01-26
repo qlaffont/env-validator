@@ -1,3 +1,4 @@
+[![Maintainability](https://api.codeclimate.com/v1/badges/9d8e089c9e3e1115302f/maintainability)](https://codeclimate.com/github/qlaffont/env-vars-validator/maintainability) [![Test Coverage](https://api.codeclimate.com/v1/badges/9d8e089c9e3e1115302f/test_coverage)](https://codeclimate.com/github/qlaffont/env-vars-validator/test_coverage) ![npm](https://img.shields.io/npm/v/env-vars-validator) ![npm](https://img.shields.io/npm/dm/env-vars-validator) ![Snyk Vulnerabilities for npm package](https://img.shields.io/snyk/vulnerabilities/npm/env-vars-validator) ![NPM](https://img.shields.io/npm/l/env-vars-validator)
 # env-vars-validator
 
 A library who will validate your environment variables from AJV schema.
