@@ -36,7 +36,6 @@ jobs:
       - name: Build
         run: pnpm build
   coverage:
-    needs: [build]
     name: coverage
     runs-on: ubuntu-latest
     steps:
@@ -48,8 +47,9 @@ jobs:
         with:
           version: 6.0.2
       - run: pnpm install
-      - uses: paambaati/codeclimate-action@v3
+      - run: pnpm test
+      - uses: paambaati/codeclimate-action@v3.0.0
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         with:
-          coverageCommand: pnpm test
+          debug: true
