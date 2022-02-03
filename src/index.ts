@@ -3,6 +3,7 @@ import addFormats from 'ajv-formats';
 
 const ajv = new Ajv({
   coerceTypes: true,
+  useDefaults: true,
 });
 addFormats(ajv);
 
@@ -10,9 +11,10 @@ export const validateEnv: (
   validationSchema: object,
   options?: {
     requiredProperties?: string[];
+    coerceVars?: boolean;
   },
-) => void = (validationSchema, options = {}) => {
-  const { requiredProperties } = options;
+) => void = (validationSchema, options = { coerceVars: true }) => {
+  const { requiredProperties, coerceVars } = options;
 
   if (!validationSchema) {
     throw new Error(
@@ -30,10 +32,16 @@ export const validateEnv: (
 
   const validate = ajv.compile(schema);
 
-  if (!validate(process.env)) {
+  const data = { ...process.env };
+
+  if (!validate(data)) {
     throw new Error(
       ajv.errorsText(validate.errors, { dataVar: 'process.env' }),
     );
+  }
+
+  if (typeof coerceVars === 'undefined' ? true : coerceVars) {
+    process.env = data;
   }
 };
 

@@ -32,6 +32,7 @@ Able to validate env var from [Ajv Properties Fields](https://ajv.js.org/json-sc
 | Field Name | Type | Default | Description |
 | --- | --- | --- | --- |
 | requiredProperties | string[] | []  | Indicate if field is required (*More Information :* [JSON Schema Required](https://ajv.js.org/json-schema.html#required)) |
+| coercevars         | boolean  | true | Indicate if fields will be cast to type (*Example:* NODE_ENV will be cast to number in our usage example) |
 
 ### currentEnv
 

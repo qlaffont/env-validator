@@ -54,7 +54,7 @@ describe('Validate environment variables', () => {
       }
     });
 
-    it('should return nothing', () => {
+    it('should return nothing if valid', () => {
       const { validateEnv } = require('../src');
 
       process.env.NODE_ENV = 'test';
@@ -68,6 +68,44 @@ describe('Validate environment variables', () => {
           { requiredProperties: ['NODE_ENV'] },
         ),
       ).toBeUndefined();
+    });
+
+    it('should coerce type if valid', () => {
+      const { validateEnv } = require('../src');
+
+      process.env.NODE_ENV = 'test';
+      process.env.PORT = '3000';
+
+      expect(
+        validateEnv(
+          {
+            NODE_ENV: { type: 'string', enum: ['test'] },
+            PORT: { type: 'integer' },
+          },
+          { requiredProperties: ['NODE_ENV'] },
+        ),
+      ).toBeUndefined();
+
+      expect(typeof process.env.PORT).toBe('number');
+    });
+
+    it('should not coerce type if specified false', () => {
+      const { validateEnv } = require('../src');
+
+      process.env.NODE_ENV = 'test';
+      process.env.PORT = '3000';
+
+      expect(
+        validateEnv(
+          {
+            NODE_ENV: { type: 'string', enum: ['test'] },
+            PORT: { type: 'integer' },
+          },
+          { requiredProperties: ['NODE_ENV'], coerceVars: false },
+        ),
+      ).toBeUndefined();
+
+      expect(typeof process.env.PORT).toBe('string');
     });
   });
 });
