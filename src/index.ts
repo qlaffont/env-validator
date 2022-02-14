@@ -51,16 +51,16 @@ enum Environment {
   TEST = 'test',
 }
 
-export const currentEnv = (
-  !!process.env.NODE_ENV && process.env.NODE_ENV !== undefined
+export const currentEnv = () =>
+  (!!process.env.NODE_ENV && process.env.NODE_ENV !== undefined
     ? process.env.NODE_ENV
     : Environment.DEVELOPMENT
-)
-  ?.toString()
-  ?.toLowerCase()
-  ?.trim();
-export const isProductionEnv = currentEnv === Environment.PRODUCTION;
-export const isDevelopmentEnv = currentEnv === Environment.DEVELOPMENT;
-export const isTestEnv = currentEnv === Environment.TEST;
-export const isDeployedEnv =
-  currentEnv !== Environment.DEVELOPMENT && currentEnv !== Environment.TEST;
+  )
+    ?.toString()
+    ?.toLowerCase()
+    ?.trim();
+export const isProductionEnv = () => currentEnv() === Environment.PRODUCTION;
+export const isDevelopmentEnv = () => currentEnv() === Environment.DEVELOPMENT;
+export const isTestEnv = () => currentEnv() === Environment.TEST;
+export const isDeployedEnv = () =>
+  currentEnv() !== Environment.DEVELOPMENT && currentEnv() !== Environment.TEST;

@@ -34,7 +34,7 @@ Able to validate env var from [Ajv Properties Fields](https://ajv.js.org/json-sc
 | requiredProperties | string[] | []  | Indicate if field is required (*More Information :* [JSON Schema Required](https://ajv.js.org/json-schema.html#required)) |
 | coercevars         | boolean  | true | Indicate if fields will be cast to type (*Example:* NODE_ENV will be cast to number in our usage example) |
 
-### currentEnv
+### currentEnv()
 
 Default: `development`
 
@@ -42,25 +42,25 @@ Return: `Boolean`
 
 Return current NODE_ENV without space and in lowercase format
 
-### isProductionEnv
+### isProductionEnv()
 
 Return: `Boolean`
 
 Return if NODE_ENV is equal to `production`
 
-### isDevelopmentEnv
+### isDevelopmentEnv()
 
 Return: `Boolean`
 
 Return if NODE_ENV is equal to `development`
 
-### isTestEnv
+### isTestEnv()
 
 Return: `Boolean`
 
 Return if NODE_ENV is equal to `test`
 
-### isDeployedEnv
+### isDeployedEnv()
 
 Return: `Boolean`
 
