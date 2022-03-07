@@ -1,6 +1,14 @@
 {
   "version": "1.1.18",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qlaffont/env-vars-validator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/qlaffont/env-vars-validator/issues",
+    "email": "contact@qlaffont.com"
+  },
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "files": [
@@ -29,6 +37,7 @@
     "access": "public"
   },
   "name": "env-vars-validator",
+  "description": "A library who will validate your environment variables from AJV schema.",
   "author": "Quentin Laffont",
   "module": "dist/env-vars-validator.esm.js",
   "size-limit": [
