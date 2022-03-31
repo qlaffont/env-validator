@@ -9,6 +9,7 @@ jobs:
   build:
     name: Build, lint, and test on Node ${{ matrix.node }} and ${{ matrix.os }}
 
+    if: startsWith(github.head_ref, 'renovate/')
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
@@ -47,6 +48,8 @@ jobs:
 
       - name: Bump version
         uses: qzb/standard-version-action@v1.0.6
+
+
 
       - run: |
           git config --global user.name "${{ secrets.USER_NAME }}"
