@@ -26,7 +26,8 @@
     "prepare": "tsdx build",
     "size": "size-limit",
     "analyze": "size-limit --why",
-    "np": "np"
+    "np": "np",
+    "size-action": "echo 'build disabled'"
   },
   "husky": {
     "hooks": {
@@ -58,8 +59,8 @@
   },
   "devDependencies": {
     "@size-limit/preset-small-lib": "8.0.1",
-    "@typescript-eslint/eslint-plugin": "5.33.1",
-    "@typescript-eslint/parser": "5.33.1",
+    "@typescript-eslint/eslint-plugin": "5.34.0",
+    "@typescript-eslint/parser": "5.34.0",
     "eslint": "8.22.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-import": "2.26.0",
