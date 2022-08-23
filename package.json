@@ -26,7 +26,8 @@
     "prepare": "tsdx build",
     "size": "size-limit",
     "analyze": "size-limit --why",
-    "np": "np"
+    "np": "np",
+    "size-action": "echo 'build disabled'"
   },
   "husky": {
     "hooks": {

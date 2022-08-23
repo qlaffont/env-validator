@@ -16,5 +16,5 @@ jobs:
       - uses: andresz1/size-limit-action@v1
         with:
           skip_step: install
-          build_script: echo 'build disabled'
+          build_script: size-action
           github_token: ${{ secrets.GITHUB_TOKEN }}
