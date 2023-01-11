@@ -68,7 +68,7 @@
     "husky": "8.0.3",
     "np": "7.6.3",
     "prettier": "2.8.2",
-    "size-limit": "8.1.0",
+    "size-limit": "8.1.1",
     "standard-version": "9.5.0",
     "tsdx": "0.14.1",
     "tslib": "2.4.1",
