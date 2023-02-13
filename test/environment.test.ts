@@ -60,6 +60,62 @@ describe('NODE_ENV verifiers', () => {
     });
   });
 
+  describe('isPreProductionEnv', () => {
+    it('expect to return a boolean', () => {
+      const { isPreProductionEnv } = require('../src');
+      expect(typeof isPreProductionEnv()).toEqual('boolean');
+    });
+
+    it('should return true if NODE_ENV is preproduction', () => {
+      process.env.NODE_ENV = 'preproduction';
+      const { isPreProductionEnv } = require('../src');
+      expect(isPreProductionEnv()).toEqual(true);
+    });
+
+    it('should return false if NODE_ENV is not preproduction', () => {
+      let isPreProductionEnv = require('../src').isPreProductionEnv;
+      expect(isPreProductionEnv()).toEqual(false);
+      jest.resetModules();
+
+      process.env.NODE_ENV = 'development';
+      isPreProductionEnv = require('../src').isPreProductionEnv;
+      expect(isPreProductionEnv()).toEqual(false);
+      jest.resetModules();
+
+      process.env.NODE_ENV = 'preproduction';
+      isPreProductionEnv = require('../src').isPreProductionEnv;
+      expect(isPreProductionEnv()).toEqual(true);
+    });
+  });
+
+  describe('isStagingEnv', () => {
+    it('expect to return a boolean', () => {
+      const { isStagingEnv } = require('../src');
+      expect(typeof isStagingEnv()).toEqual('boolean');
+    });
+
+    it('should return true if NODE_ENV is preproduction', () => {
+      process.env.NODE_ENV = 'staging';
+      const { isStagingEnv } = require('../src');
+      expect(isStagingEnv()).toEqual(true);
+    });
+
+    it('should return false if NODE_ENV is not preproduction', () => {
+      let isStagingEnv = require('../src').isStagingEnv;
+      expect(isStagingEnv()).toEqual(false);
+      jest.resetModules();
+
+      process.env.NODE_ENV = 'development';
+      isStagingEnv = require('../src').isStagingEnv;
+      expect(isStagingEnv()).toEqual(false);
+      jest.resetModules();
+
+      process.env.NODE_ENV = 'staging';
+      isStagingEnv = require('../src').isStagingEnv;
+      expect(isStagingEnv()).toEqual(true);
+    });
+  });
+
   describe('isDevelopmentEnv', () => {
     it('expect to return a boolean', () => {
       const { isDevelopmentEnv } = require('../src');
@@ -142,12 +198,28 @@ describe('NODE_ENV verifiers', () => {
     it('should return true if NODE_ENV is not development', () => {
       process.env.NODE_ENV = 'thisisatest';
       let isDeployedEnv = require('../src').isDeployedEnv;
-      expect(isDeployedEnv()).toEqual(true);
+      expect(isDeployedEnv()).toEqual(false);
       jest.resetModules();
 
       process.env.NODE_ENV = 'production';
       isDeployedEnv = require('../src').isDeployedEnv;
       expect(isDeployedEnv()).toEqual(true);
+
+      process.env.NODE_ENV = 'preproduction';
+      isDeployedEnv = require('../src').isDeployedEnv;
+      expect(isDeployedEnv()).toEqual(true);
+
+      process.env.NODE_ENV = 'staging';
+      isDeployedEnv = require('../src').isDeployedEnv;
+      expect(isDeployedEnv()).toEqual(true);
+
+      process.env.NODE_ENV = 'development';
+      isDeployedEnv = require('../src').isDeployedEnv;
+      expect(isDeployedEnv()).toEqual(false);
+
+      process.env.NODE_ENV = 'test';
+      isDeployedEnv = require('../src').isDeployedEnv;
+      expect(isDeployedEnv()).toEqual(false);
     });
   });
 });

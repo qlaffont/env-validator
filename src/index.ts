@@ -45,10 +45,12 @@ export const validateEnv: (
   }
 };
 
-enum Environment {
-  PRODUCTION = 'production',
-  DEVELOPMENT = 'development',
+export enum Environment {
   TEST = 'test',
+  DEVELOPMENT = 'development',
+  STAGING = 'staging',
+  PREPRODUCTION = 'preproduction',
+  PRODUCTION = 'production',
 }
 
 export const currentEnv = () =>
@@ -60,7 +62,12 @@ export const currentEnv = () =>
     ?.toLowerCase()
     ?.trim();
 export const isProductionEnv = () => currentEnv() === Environment.PRODUCTION;
+export const isPreProductionEnv = () =>
+  currentEnv() === Environment.PREPRODUCTION;
+export const isStagingEnv = () => currentEnv() === Environment.STAGING;
 export const isDevelopmentEnv = () => currentEnv() === Environment.DEVELOPMENT;
 export const isTestEnv = () => currentEnv() === Environment.TEST;
 export const isDeployedEnv = () =>
-  currentEnv() !== Environment.DEVELOPMENT && currentEnv() !== Environment.TEST;
+  Object.values(Environment)
+    .filter((v) => v !== Environment.TEST && v !== Environment.DEVELOPMENT)
+    .indexOf(currentEnv() as Environment) !== -1;
