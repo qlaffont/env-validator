@@ -48,6 +48,19 @@ Return: `Boolean`
 
 Return if NODE_ENV is equal to `production`
 
+
+### isPreproductionEnv()
+
+Return: `Boolean`
+
+Return if NODE_ENV is equal to `preproduction`
+
+### isStagingEnv()
+
+Return: `Boolean`
+
+Return if NODE_ENV is equal to `staging`
+
 ### isDevelopmentEnv()
 
 Return: `Boolean`
